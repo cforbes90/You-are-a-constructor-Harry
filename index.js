@@ -4,3 +4,4 @@
 // 3 random function that will choose from that word array
 // 4 loop that spells out word using underscores and displays them
 //5 user guess unti correctly an dlogic for establishing win
+var inquirer=require("inquirer");
