@@ -9,7 +9,7 @@
 // A function that takes a character as an argument and checks it against the underlying character, updating the stored boolean value to true if it was guessed correctly
 var userInput="";
 
-function Letter() {
+var Letter=function(char) {
     this.char=char; 
     this.guessed=false;
     this.charGuessed = function(){
@@ -32,3 +32,4 @@ function Letter() {
     }
 
 }
+module.exports =Letter;
