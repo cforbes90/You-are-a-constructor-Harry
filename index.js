@@ -19,7 +19,7 @@ var computerWord= new word(wordlist[Math.floor(Math.random()*wordlist.length)]);
 //console.log("computerWord is on the next line");
 //console.log('computerWord:', computerWord.letterObjects.char);
 computerWord.makeWord();
-console.log("the following is trying to drill down");
+//console.log("the following is trying to drill down");
 //console.log(computerWord.letterObjects.char);
 //console.log('after running makeWord computerWord:', computerWord.letterObjects);
 //console.log(this.letterObjects);
@@ -28,7 +28,7 @@ console.log("the following is trying to drill down");
 //console.log("next is word.char");
 //console.log(this.word.makeWord(computerWord));
 
-computerWord.showWordEndGame();
+//computerWord.showWordEndGame();
 
 // this.showWordEndGame();
 
@@ -60,10 +60,15 @@ function gameLoop(){
         }
     ]).then(function(answer){
         guesses--;
+        console.log('User guesses remaining:', guesses);
+        userGuess=answer.charGuessed;
+        console.log("The following is the userGuess", userGuess);
+        computerWord.showWordGuess(userGuess);
+        
 
-        console.log(answer);
+        //console.log(answer);
         //console.log('answer.charGuessed:', answer.charGuessed)
-       userGuess=answer.charGuessed;
+       
        computerWord.showWordGuess();
        //console.log('userGuess:', userGuess);
        var upper=userGuess.toUpperCase();
@@ -89,4 +94,6 @@ function gameLoop(){
 
     });
 };
+if (guesses>0){
 gameLoop();
+}

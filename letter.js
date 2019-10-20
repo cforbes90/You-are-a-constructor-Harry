@@ -22,7 +22,7 @@ var Letter = function (char) {
         }
 
     }
-    this.charCheck = function () {
+    this.charCheck = function (userGuess) {
         if (this.char === userGuess) {
             this.guessed = true;
             return true;

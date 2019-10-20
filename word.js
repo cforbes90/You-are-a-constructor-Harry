@@ -18,16 +18,21 @@ var Word = function (Rumpelstiltskin) {
             this.letterObjects.push(newLetter);
             //console.log("This is console log in makeWord");
             console.log(newLetter);
+            //console.log("Below is letterObjects.length");
+            //console.log(this.letterObjects.length);
+            //console.log("This.aletter Objects is below from Make word function");
+            //console.log(this.letterObjects);
         }
     }
     this.showWordGuess = function (userGuess) {
         for (i = 0; i < this.letterObjects.length; i++) {
             if (userGuess == this.letterObjects[i].char[0]) {
-                console.log("userGuess", userGuess)
-                this.charCheck();
-                this.charGuessed();
+                console.log("letter objects in showWOrdGuess",this.letterObjects[i].char[0])
+                this.letterObjects[i].char[0].charCheck(userGuess);
+               // this.charGuessed();
                
             }
+            console.log("This shows, showWordGuess was activated, but failed to find the letter");
         }
     }
     this.showWordEndGame = function () {
@@ -43,7 +48,7 @@ var Word = function (Rumpelstiltskin) {
         console.log(this.display);
         console.log("The previous was this.display");
         var joined = this.display.join("");
-        console.log(joined);
+        console.log("This was the word you were looking for: " +joined);
         return joined;
         
 
