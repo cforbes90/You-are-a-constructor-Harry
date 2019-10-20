@@ -7,3 +7,16 @@
 // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
 var letter =require("./letter");
 
+var Word = function() {
+
+this.letterObjects=[];
+
+for (i=0; i<Word.length; i++){
+
+    newLetter= new letter(wrd.charAt(i));
+    this.letterObjects.push(newLetter);
+}
+
+
+}
+module.exports=Word; 
