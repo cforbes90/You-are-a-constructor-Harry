@@ -40,14 +40,14 @@ computerWord.makeWord();
 // console.log("|            |");
 // console.log(" ~~~~~~~~~~~~");
 function gameStart(){
-    console.log("/*~~~*~~~*~~~*~~~*~~~*~~~*~~~*")
-    console.log("Hello there!");
-    console.log("   _██_");
-    console.log(" ‹(•¿•)›");
-    console.log(".. (█)");
-    console.log(".../ I");
-    console.log("Care for a game?");
-    console.log("/*~~~*~~~*~~~*~~~*~~~*~~~*~~~*");
+    console.log("*~~~*~~~*~~~*~~~*~~~*~~~*~~~*")
+    console.log("      Hello there!");
+    console.log("          _██_");
+    console.log("        ‹(•¿•)›");
+    console.log("       .. (█)");
+    console.log("       .../ I");
+    console.log("    Care for a game?");
+    console.log("*~~~*~~~*~~~*~~~*~~~*~~~*~~~*");
     };
 
 // console.log('|guessedGuestList:', guessedGuestList+ "|");
@@ -64,8 +64,8 @@ function gameLoop(){
             guesses--;
             console.log('User guesses remaining:', guesses);
             userGuess=answer.charGuessed;
-            var upper=userGuess.toUpperCase();
             console.log("The following is the userGuess:", userGuess);
+            var upper=userGuess.toUpperCase();
             console.log("The following is upper: ", upper);
             computerWord.showWordGuess(upper);
             console.log(computerWord.displayArray);
