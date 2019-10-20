@@ -14,21 +14,21 @@ var Letter = function (char) {
     this.guessed = false;
     this.charGuessed = function () {
         if (this.guessed === true) {
+            console.log("----------")
             console.log(this.char)
+            console.log("-----------");
         } else {
             console.log("_");
         }
 
     }
     this.charCheck = function () {
-        if (this.char === userInput) {
+        if (this.char === userGuess) {
             this.guessed = true;
             return true;
         } else {
             return false;
         }
-
-
     }
     //Because of the names in the array have a space that has to be dealt with. 
     this.spaceCheck = function () {
@@ -38,6 +38,11 @@ var Letter = function (char) {
         } else {
             this.guessed = false;
         }
+
+    }
+    this.showLetterEndGame= function() {
+        return this.char;
+
 
     }
 }

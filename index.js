@@ -12,17 +12,45 @@ var letter=require("./letter");
 var wordlist=require("./wordlist");
 var userGuess="";
 var guessedGuestList=[];
-console.log("\x1b[1m", "\x1b[31m", "You failed...", "\x1b[0m");
-console.log(" ___________");
-console.log("/   R.I.P.  ⟍");
-console.log("| HERE LIES  |");
-console.log("|   ...      |");
-console.log("|"+"\x1b[5m",  "YOU!!!!", "\x1b[0m   |");
-console.log("|            |");
-console.log(" ~~~~~~~~~~~~");
+var guesses=8;
+var computerWord= new word(wordlist[Math.floor(Math.random()*wordlist.length)]);
+
+//console.log(this.letterObjects);
+//console.log("computerWord is on the next line");
+//console.log('computerWord:', computerWord.letterObjects.char);
+computerWord.makeWord();
+console.log("the following is trying to drill down");
+//console.log(computerWord.letterObjects.char);
+//console.log('after running makeWord computerWord:', computerWord.letterObjects);
+//console.log(this.letterObjects);
+// console.log("This is word");
+// console.log(word);
+//console.log("next is word.char");
+//console.log(this.word.makeWord(computerWord));
+
+computerWord.showWordEndGame();
+
+// this.showWordEndGame();
+
+// console.log("\x1b[1m", "\x1b[31m", "You failed...", "\x1b[0m");
+// console.log(" ___________");
+// console.log("/   R.I.P.  ⟍");
+// console.log("| HERE LIES  |");
+// console.log("|   ...      |");
+// console.log("|"+"\x1b[5m",  "YOU!!!!", "\x1b[0m   |");
+// console.log("|            |");
+// console.log(" ~~~~~~~~~~~~");
 
 console.log("/~~~~~~~~~~~~~~~~~~~~~~~~~*~~~")
-console.log('|guessedGuestList:', guessedGuestList+ "|");
+console.log("Hello there!");
+console.log("   _██_");
+console.log(" ‹(•¿•)›");
+console.log(".. (█)");
+console.log(".../ I");
+console.log("Care for a game?");
+console.log("/~~~~~~~~~~~~~~~~~~~~~~~~~*~~~");
+
+// console.log('|guessedGuestList:', guessedGuestList+ "|");
 console.log 
 function gameLoop(){
     inquirer.prompt([
@@ -31,12 +59,16 @@ function gameLoop(){
             message: "Pick a letter!"
         }
     ]).then(function(answer){
-        console.log(answer.name)
-        console.log('answer.charGuessed:', answer.charGuessed)
+        guesses--;
+
+        console.log(answer);
+        //console.log('answer.charGuessed:', answer.charGuessed)
        userGuess=answer.charGuessed;
-       console.log('userGuess:', userGuess);
+       computerWord.showWordGuess();
+       //console.log('userGuess:', userGuess);
        var upper=userGuess.toUpperCase();
-       console.log('\u27000 userGuessupper case :', upper);
+       guessedGuestList.push(upper);
+       console.log('Guessed Guest List:', guessedGuestList)
       
 
 
@@ -53,7 +85,7 @@ function gameLoop(){
         　console.log("| 丿 ＼ ⌒)");
         　console.log("| |　　) /");
         console.log("`ノ )　　Lﾉ");
-
+        gameLoop();
 
     });
 };
