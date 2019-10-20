@@ -12,13 +12,15 @@ var letter=require("./letter");
 var wordlist=require("./wordlist");
 var userGuess="";
 var guessedGuestList=[];
-var guesses=8;
+var guesses=3;
 var computerWord= new word(wordlist[Math.floor(Math.random()*wordlist.length)]);
 
-//console.log(this.letterObjects);
-//console.log("computerWord is on the next line");
-//console.log('computerWord:', computerWord.letterObjects.char);
 computerWord.makeWord();
+//for(i=0; i<computerWord.letterObjects.length; i++){
+    //console.log("the next thing is computerWord.letterObjects[i].char called from Index");
+//computerWord.letterObjects[i].char[0].spaceCheck();
+//console.log( computerWord.letterObjects[i].char);
+//}
 //console.log("the following is trying to drill down");
 //console.log(computerWord.letterObjects.char);
 //console.log('after running makeWord computerWord:', computerWord.letterObjects);
@@ -27,9 +29,6 @@ computerWord.makeWord();
 // console.log(word);
 //console.log("next is word.char");
 //console.log(this.word.makeWord(computerWord));
-
-//computerWord.showWordEndGame();
-
 // this.showWordEndGame();
 
 // console.log("\x1b[1m", "\x1b[31m", "You failed...", "\x1b[0m");
@@ -40,43 +39,39 @@ computerWord.makeWord();
 // console.log("|"+"\x1b[5m",  "YOU!!!!", "\x1b[0m   |");
 // console.log("|            |");
 // console.log(" ~~~~~~~~~~~~");
-
-console.log("/~~~~~~~~~~~~~~~~~~~~~~~~~*~~~")
-console.log("Hello there!");
-console.log("   _██_");
-console.log(" ‹(•¿•)›");
-console.log(".. (█)");
-console.log(".../ I");
-console.log("Care for a game?");
-console.log("/~~~~~~~~~~~~~~~~~~~~~~~~~*~~~");
+function gameStart(){
+    console.log("/*~~~*~~~*~~~*~~~*~~~*~~~*~~~*")
+    console.log("Hello there!");
+    console.log("   _██_");
+    console.log(" ‹(•¿•)›");
+    console.log(".. (█)");
+    console.log(".../ I");
+    console.log("Care for a game?");
+    console.log("/*~~~*~~~*~~~*~~~*~~~*~~~*~~~*");
+    };
 
 // console.log('|guessedGuestList:', guessedGuestList+ "|");
-console.log 
+gameStart();
 function gameLoop(){
-    inquirer.prompt([
-        {
-            name:"charGuessed",
-            message: "Pick a letter!"
-        }
-    ]).then(function(answer){
-        guesses--;
-        console.log('User guesses remaining:', guesses);
-        userGuess=answer.charGuessed;
-        console.log("The following is the userGuess", userGuess);
-        computerWord.showWordGuess(userGuess);
-        
-
-        //console.log(answer);
-        //console.log('answer.charGuessed:', answer.charGuessed)
-       
-       computerWord.showWordGuess();
-       //console.log('userGuess:', userGuess);
-       var upper=userGuess.toUpperCase();
-       guessedGuestList.push(upper);
-       console.log('Guessed Guest List:', guessedGuestList)
+    if (guesses>0){
+        //gameLoop();
+        inquirer.prompt([
+         {
+                name:"charGuessed",
+                message: "Pick a letter!"
+            }
+        ]).then(function(answer){
+            guesses--;
+            console.log('User guesses remaining:', guesses);
+            userGuess=answer.charGuessed;
+            var upper=userGuess.toUpperCase();
+            console.log("The following is the userGuess:", userGuess);
+            console.log("The following is upper: ", upper);
+            computerWord.showWordGuess(upper);
+            console.log(computerWord.displayArray);
+            guessedGuestList.push(upper);
+            console.log('Guessed Guest List:', guessedGuestList); 
       
-
-
        console.log("＼＼ ＿");
        　　 console.log("＼(　•_•) F");
        　　　console.log(" <　⌒ヽ A");
@@ -92,8 +87,12 @@ function gameLoop(){
         console.log("`ノ )　　Lﾉ");
         gameLoop();
 
-    });
+        });
+    }else{
+        computerWord.showWordEndGame();
+        computerWord.RIP();
+    };
 };
-if (guesses>0){
+
 gameLoop();
-}
+

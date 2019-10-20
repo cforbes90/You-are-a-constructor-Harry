@@ -10,7 +10,7 @@
 var userInput = "";
 
 var Letter = function (char) {
-    this.char = char;
+    this.char = char.charAt(0);
     this.guessed = false;
     this.charGuessed = function () {
         if (this.guessed === true) {
@@ -22,9 +22,10 @@ var Letter = function (char) {
         }
 
     }
-    this.charCheck = function (userGuess) {
-        if (this.char === userGuess) {
+    this.charCheck = function(userGuess) {
+        if (this.char == userGuess) {
             this.guessed = true;
+            console.log("True!!!");
             return true;
         } else {
             return false;
@@ -34,13 +35,13 @@ var Letter = function (char) {
     this.spaceCheck = function () {
         if (this.char == " ") {
             this.guessed = true;
-            return true;
+            //return true;
         } else {
             this.guessed = false;
         }
 
     }
-    this.showLetterEndGame= function() {
+    this.showLetter= function() {
         return this.char;
 
 
