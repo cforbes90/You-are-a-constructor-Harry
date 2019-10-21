@@ -6,7 +6,7 @@
 
 // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
 var letter = require("./letter");
-
+var win = 0;
 var Word = function (Rumpelstiltskin) {
     this.display = [];
     this.displayArray = [];
@@ -38,41 +38,52 @@ var Word = function (Rumpelstiltskin) {
 
 
     this.replaceLettersWithUnderscores = function () {
-        
+
         for (i = 0; i < this.display.length; i++) {
             var start_index = i;
             var numOfElements = 1;
+            if (this.letterObjects[i].char == " ") {
+                this.letterObjects[i].guessed = true;
+                win++;
+                console.log(this.letterObjects[i]);
+                console.log("this is win in replacing letters. Should be equal to how many spaces in word: ", win);
+            }
             if (!this.letterObjects[i].guessed) {
                 this.display.splice(start_index, numOfElements, "_");
                 // this.display.splice(start_index,numOfElements,this.letterObjects[i].char);
             }
-           
+
         }
         console.log("Below is just this.display from replace Underscores");
         console.log(this.display);
     };
     this.replaceUnderscoresWithLetters = function () {
-        var win=1;
+
         for (i = 0; i < this.display.length; i++) {
-            console.log("The dislpay length is: ",this.display.length);
+            console.log("The dislpay length is: ", this.display.length);
             var start_index = i;
             var numOfElements = 1;
-            
+
             if (this.letterObjects[i].guessed) {
                 this.display.splice(start_index, numOfElements, this.letterObjects[i].char);
-                win++;//console.log("I tried to replace them with letterss!");
+                 //console.log("I tried to replace them with letterss!");
+                console.log("this is winin replace Underscores: ", win);
+
             }
-            if(win==this.display.length){
+            if (win == this.display.length) {
+
+                console.log("this is win: ", win);
+
                 this.WIN();
             }
         }
-        console.log("The dislpay length is: ",this.display.length);
-        console.log("Win variable is at: ",win);
+        console.log("The dislpay length is: ", this.display.length);
+        console.log("Win variable is at: ", win);
         console.log(this.display);
     };
 
     this.showWordGuess = function (upper) {
-       // console.log("Below is just this.display from showwordGuess");
+        // console.log("Below is just this.display from showwordGuess");
         console.log(this.display);
         //console.log("The above was the simple this.display in showWordGuess");
 
@@ -81,10 +92,12 @@ var Word = function (Rumpelstiltskin) {
                 //console.log("This is upper in showWord Guess: ", upper);
                 //console.log("letter objects in showWordGuess", this.letterObjects[i].char)
                 this.letterObjects[i].guessed = true;
+                win++;
+                console.log("This is win in showWordGuess: ", win);
                 console.log("Below is the letterObjects with the guess changed");
                 console.log(this.letterObjects[i]);
             }
-          
+
         }
         this.replaceUnderscoresWithLetters();
 
@@ -126,7 +139,7 @@ var Word = function (Rumpelstiltskin) {
         console.log("|            |");
         console.log(" ~~~~~~~~~~~~");
     };
-    this.WIN=function() {
+    this.WIN = function () {
         console.log("You did it!! You have proved your nerdiness!");
 
 

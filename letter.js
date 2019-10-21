@@ -22,7 +22,7 @@ var Letter = function (char) {
         }
 
     }
-    this.charCheck = function (userGuess) {
+    this.charCheck = function (char) {
         if (this.char == userGuess) {
             this.guessed = true;
             console.log("True!!!");
@@ -32,7 +32,7 @@ var Letter = function (char) {
         }
     }
     //Because of the names in the array have a space that has to be dealt with. 
-    this.spaceCheck = function () {
+    this.spaceCheck = function (char) {
         if (this.char == " ") {
             this.guessed = true;
 
