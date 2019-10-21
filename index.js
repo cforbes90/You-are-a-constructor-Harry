@@ -54,6 +54,7 @@ function gameStart(){
 gameStart();
 function gameLoop(){
     if (guesses>0){
+        console.log('User guesses remaining:', guesses);
         //gameLoop();
         inquirer.prompt([
          {
@@ -62,13 +63,18 @@ function gameLoop(){
             }
         ]).then(function(answer){
             guesses--;
-            console.log('User guesses remaining:', guesses);
             userGuess=answer.charGuessed;
             console.log("The following is the userGuess:", userGuess);
+            for(i=0; i<computerWord.letterObjects.length;i++){
+                if(userGuess==computerWord.letterObjects[i].char){
+                    guesses++;
+                }
+            }
+            console.log('This is after the add life loop User guesses remaining:', guesses);
             var upper=userGuess.toUpperCase();
             console.log("The following is upper: ", upper);
             computerWord.showWordGuess(upper);
-            console.log(computerWord.displayArray);
+            //console.log(computerWord.displayArray);
             guessedGuestList.push(upper);
             console.log('Guessed Guest List:', guessedGuestList); 
       
@@ -84,7 +90,7 @@ function gameLoop(){
         　console.log("|　|、＼");
         　console.log("| 丿 ＼ ⌒)");
         　console.log("| |　　) /");
-        console.log("`ノ )　　Lﾉ");
+    console.log("`ノ )　　Lﾉ");
         gameLoop();
 
         });

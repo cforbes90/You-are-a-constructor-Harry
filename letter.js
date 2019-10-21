@@ -22,7 +22,7 @@ var Letter = function (char) {
         }
 
     }
-    this.charCheck = function(userGuess) {
+    this.charCheck = function (userGuess) {
         if (this.char == userGuess) {
             this.guessed = true;
             console.log("True!!!");
@@ -35,16 +35,14 @@ var Letter = function (char) {
     this.spaceCheck = function () {
         if (this.char == " ") {
             this.guessed = true;
-            //return true;
+
         } else {
             this.guessed = false;
         }
 
-    }
-    this.showLetter= function() {
+    };
+    this.showLetter = function () {
         return this.char;
-
-
-    }
-}
-    module.exports = Letter;
+    };
+};
+module.exports = Letter;

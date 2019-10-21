@@ -43,7 +43,7 @@ var Word = function (Rumpelstiltskin) {
             var start_index = i;
             var numOfElements = 1;
             if (!this.letterObjects[i].guessed) {
-                this.display.splice(start_index, numOfElements, "2");
+                this.display.splice(start_index, numOfElements, "_");
                 // this.display.splice(start_index,numOfElements,this.letterObjects[i].char);
             }
            
@@ -52,58 +52,53 @@ var Word = function (Rumpelstiltskin) {
         console.log(this.display);
     };
     this.replaceUnderscoresWithLetters = function () {
+        var win=1;
         for (i = 0; i < this.display.length; i++) {
+            console.log("The dislpay length is: ",this.display.length);
             var start_index = i;
             var numOfElements = 1;
+            
             if (this.letterObjects[i].guessed) {
                 this.display.splice(start_index, numOfElements, this.letterObjects[i].char);
-                console.log("I tried to replace them with letterss!");
+                win++;//console.log("I tried to replace them with letterss!");
+            }
+            if(win==this.display.length){
+                this.WIN();
             }
         }
+        console.log("The dislpay length is: ",this.display.length);
+        console.log("Win variable is at: ",win);
         console.log(this.display);
     };
 
     this.showWordGuess = function (upper) {
-        console.log("Below is just this.display from showwordGuess");
+       // console.log("Below is just this.display from showwordGuess");
         console.log(this.display);
-        console.log("The above was the simple this.display in showWordGuess");
+        //console.log("The above was the simple this.display in showWordGuess");
 
         for (i = 0; i < this.display.length; i++) {
             if (upper == this.letterObjects[i].char.toUpperCase()) {
-                console.log("This is upper in showWord Guess: ", upper);
-                console.log("letter objects in showWordGuess", this.letterObjects[i].char)
+                //console.log("This is upper in showWord Guess: ", upper);
+                //console.log("letter objects in showWordGuess", this.letterObjects[i].char)
                 this.letterObjects[i].guessed = true;
                 console.log("Below is the letterObjects with the guess changed");
                 console.log(this.letterObjects[i]);
             }
-            // if (this.letterObjects[i].guessed) {
-            //     this.displayArray=[];
-            //     this.displayArray.push(this.letterObjects[i].char.toUpperCase());
-            //     console.log(this.displayArray);
-            //showDisplayArray();
-            //console.log(this.display);
-
-            // console.log(this.displayArray);
-            //console.log(this.letterObjects[i]);
-            // this.charGuessed();
-            // console.log("This is this.displayArray below!")
-            // console.log(this.displayArray);
-            // console.log("This is this.displayArray above")
-            console.log("This shows, showWordGuess was activated, but failed to find the letter");
+          
         }
         this.replaceUnderscoresWithLetters();
 
     };
-    this.showDisplayArray = function () {
-        for (i = 0; i < this.letterObjects.length; i++) {
-            if (this.letterObjects[i].guess) {
-                this.displayArray.push(this.letterObjects[i].char);
-            }
-        }
-        var joined = this.displayArray.join("");
-        console.log("This is what you have so far" + joined);
+    // this.showDisplayArray = function () {
+    //     for (i = 0; i < this.letterObjects.length; i++) {
+    //         if (this.letterObjects[i].guess) {
+    //             this.displayArray.push(this.letterObjects[i].char);
+    //         }
+    //     }
+    //     var joined = this.displayArray.join("");
+    //     console.log("This is what you have so far" + joined);
 
-    };
+    // };
 
     this.showWordEndGame = function () {
         this.displayArray = [];
@@ -112,9 +107,9 @@ var Word = function (Rumpelstiltskin) {
             this.displayArray.push(this.letterObjects[i].char.toUpperCase());
         }
         console.log("the following is ENDGAME displayarray");
-        console.log("The next was this.displayArray");
+        //console.log("The next was this.displayArray");
         console.log(this.displayArray);
-        console.log("The previous was this.displayArray");
+        //console.log("The previous was this.displayArray");
         var joined = this.displayArray.join("");
         console.log(" ~~~~~~~~~~~~");
         console.log("This was the word you were looking for: " + joined);
@@ -131,6 +126,11 @@ var Word = function (Rumpelstiltskin) {
         console.log("|            |");
         console.log(" ~~~~~~~~~~~~");
     };
+    this.WIN=function() {
+        console.log("You did it!! You have proved your nerdiness!");
+
+
+    }
 
 };
 
