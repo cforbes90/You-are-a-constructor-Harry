@@ -21,19 +21,15 @@ var Word = function (Rumpelstiltskin) {
     //     console.log("This is guesses in add life", guesses);}
 
     this.makeWord = function () {
-        this.display = [];
-        this.guesses = 5;
-        //this.letterObjects =[];
-        //this.winning=0;
+        this.initialize();
+        
         for (i = 0; i < Rumpelstiltskin.length; i++) {
             var newLetter = new letter(Rumpelstiltskin.charAt(i));
             this.letterObjects.push(newLetter);
             //console.log(newLetter);
             this.display.push(this.letterObjects[i].char.toUpperCase());
         }
-        // console.log("Below is just this.display from makeWord");
-        //console.log(this.display);
-        //console.log("We are about to replace the above display with dashes");
+       
         gameStartVisual();
         console.log("|-------GUESS THE WORD!!--------|", "\n");
         this.replaceLettersWithUnderscores();
@@ -48,7 +44,7 @@ var Word = function (Rumpelstiltskin) {
             if (this.letterObjects[i].char == " ") {
                 this.letterObjects[i].guessed = true;
                 this.winning++;
-                console.log("This is this.winning in replace Letters", this.winning);
+                //console.log("This is this.winning in replace Letters", this.winning);
             }
             if (!this.letterObjects[i].guessed) {
                 this.display.splice(start_index, numOfElements, "_");
@@ -90,7 +86,7 @@ var Word = function (Rumpelstiltskin) {
                 //console.log("letter objects in showWordGuess", this.letterObjects[i].char)
                 this.letterObjects[i].guessed = true;
                 this.winning++;
-                console.log("This is this.winning in show WOrd Guess", this.winning);
+                //console.log("This is this.winning in show WOrd Guess", this.winning);
                 this.addGuesses();
                 // console.log("This is win in showWordGuess: ", win);
                 // console.log("Below is the letterObjects with the guess changed");
@@ -110,14 +106,15 @@ var Word = function (Rumpelstiltskin) {
         //console.log("The previous was this.displayArray");
         var joined = this.displayArray.join("");
         console.log(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        console.log("    This was the word you were looking for: " + joined);
+        console.log("    The word you were looking for was: " + joined);
         console.log(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
     };
     this.initialize=function(){
-
+        this.letterObjects=[];
         this.guesses=5;
         this.display=[];
+        this.winning=0;
     }
     this.addGuesses = function () {
         this.guesses=this.guesses+ 1;
@@ -138,18 +135,18 @@ var Word = function (Rumpelstiltskin) {
     this.WIN = function () {
         console.log("You did it!! You have proved your nerdiness!");
         console.log("＼＼ ＿");
-        console.log("＼(　•_•) F");
-        console.log(" <　⌒ヽ A");
-        console.log("/ 　 へ＼ B");
-        console.log("/　　/　＼＼ U");
-        console.log(" |　ノ　　 ヽ_つ L");
-        console.log("/　/ O");
+          console.log("＼(　•_•) F");
+          console.log(" <　⌒ヽ A");
+           console.log("/ 　 へ＼ B");
+          console.log("/　　/　＼＼ U");
+         console.log(" |　ノ　　 ヽ_つ L");
+          console.log("/　/ O");
         console.log(" /　/| U");
         console.log("(　(ヽ S");
         console.log("|　|、＼");
         console.log("| 丿 ＼ ⌒)");
         console.log("| |　　) /");
-        console.log("`ノ )　　Lﾉ");
+      console.log("`ノ )　　Lﾉ");
     }
     gameStartVisual = function () {
         console.log("\n", "\n", "*~~~*~~~*~~~*~~~*~~~*~~~*~~~*")
