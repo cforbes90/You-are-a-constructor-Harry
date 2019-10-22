@@ -55,19 +55,19 @@ function replay() {
     ]).then(function (resp) {
         if (resp.playAgain) {
             console.log("Playing again? Well, that just proved your nerdiness...");
-            console.log("＼＼ ＿");
-               console.log("＼(　•_•) F");
-               console.log(" <　⌒ヽ A");
-               console.log("/ 　 へ＼ B");
-              console.log("/　　/　＼＼ U");
-             console.log(" |　ノ　　 ヽ_つ L");
-              console.log("/　/ O");
-            console.log(" /　/| U");
-            console.log("(　(ヽ S");
-            console.log("|　|、＼");
-            console.log("| 丿 ＼ ⌒)");
-            console.log("| |　　) /");
-          console.log("`ノ )　　Lﾉ");
+console.log("   ＼＼ ＿");
+console.log("     ＼(　•_•) F");
+console.log("      <　⌒ヽ A");
+console.log("      / 　 へ＼ B");
+console.log("     /　　/　＼＼ U");
+console.log("     |　ノ　　 ヽ_つ L");
+console.log("    /　/ O");
+console.log("   /　/| U");
+console.log("  (　(ヽ S");
+console.log("  |　|、＼");
+console.log("  | 丿 ＼ ⌒)");
+console.log("  | |　　) /");
+console.log("`ノ )　　Lﾉ");
             initialize();
         } else {
             goHomeToMommy();
