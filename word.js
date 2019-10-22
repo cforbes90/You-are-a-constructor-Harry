@@ -63,7 +63,6 @@ var Word = function (Rumpelstiltskin) {
 
             if (this.letterObjects[i].guessed) {
                 this.display.splice(start_index, numOfElements, this.letterObjects[i].char);
-
             }
             
         }
@@ -133,23 +132,30 @@ var Word = function (Rumpelstiltskin) {
         console.log(" ~~~~~~~~~~~~");
     };
     this.WIN = function () {
-        console.log("You did it!! You have proved your nerdiness!");
-        console.log("＼＼ ＿");
-          console.log("＼(　•_•) F");
-          console.log(" <　⌒ヽ A");
-           console.log("/ 　 へ＼ B");
-          console.log("/　　/　＼＼ U");
-         console.log(" |　ノ　　 ヽ_つ L");
-          console.log("/　/ O");
-        console.log(" /　/| U");
-        console.log("(　(ヽ S");
-        console.log("|　|、＼");
-        console.log("| 丿 ＼ ⌒)");
-        console.log("| |　　) /");
-      console.log("`ノ )　　Lﾉ");
+       
+console.log("Your knowledge of a children's book is mighty!","\n");
+console.log("_______oBBBBB8o______oBBBBBBB"); 
+console.log("_____o8BBBBBBBBBBB__BBBBBBBBB8________o88o"); 
+console.log("___o8BBBBBB**8BBBB__BBBBBBBBBB_____oBBBBBBBo"); 
+console.log("__oBBBBBBB*___***___BBBBBBBBBB_____BBBBBBBBBBo"); 
+console.log("_8BBBBBBBBBBooooo___*BBBBBBB8______*BB*_8BBBBBBo"); 
+console.log("_8BBBBBBBBBBBBBBBB8ooBBBBBBB8___________8BBBBBBB8"); 
+console.log("__*BBBBBBBBBBBBBBBBBBBBBBBBBB8_o88BB88BBBBBBBBBBBB"); 
+console.log("____*BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8");
+console.log("______**8BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB*");
+console.log("___________*BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB8*");
+console.log("____________*BBBBBBBBBBBBBBBBBBBBBBBB8888**");
+console.log("_____________BBBBBBBBBBBBBBBBBBBBBBB*");
+console.log("_____________*BBBBBBBBBBBBBBBBBBBBB*");
+console.log("______________*BBBBBBBBBBBBBBBBBB8");
+console.log("_______________*BBBBBBBBBBBBBBBB*");
+console.log("________________8BBBBBBBBBBBBBBB8");
+console.log("_________________8BBBBBBBBBBBBBBBo");
+console.log("__________________BBBBBBBBBBBBBBB8");
+console.log("__________________BBBBBBBBBBBBBBBB,");
     }
     gameStartVisual = function () {
-        console.log("\n", "\n", "*~~~*~~~*~~~*~~~*~~~*~~~*~~~*")
+        console.log("\n","*~~~*~~~*~~~*~~~*~~~*~~~*~~~*")
         console.log("      Hello there!");
         console.log("          _██_");
         console.log("        ‹(•¿•)›");
@@ -157,10 +163,10 @@ var Word = function (Rumpelstiltskin) {
         console.log("       .../ I");
         console.log("    Care for a game?");
         console.log("*~~~*~~~*~~~*~~~*~~~*~~~*~~~*", "\n");
-        console.log("\nEach blank represents an obscured letter you need to reveal.",
+        console.log("Each blank represents an obscured letter you need to reveal.",
             "\nYou only have a few guesses but if your guess reveals a letter",
             "\nin the puzzle, you get another chance!");
-        console.log("Those are all the rules, now LET'S GO!!!!", "\n", "\n");
+        console.log("Those are all the rules, now LET'S GO!!!!", "\n");
     }
 
 };
